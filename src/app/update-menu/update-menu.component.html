@@ -1,0 +1,15 @@
+<form>
+    <div [hidden]="ajout">
+    <label>ID Menu</label>
+    <input type="text" [(ngModel)]="menu.idMenu" name="idMenu" class="form-control w-25">
+    </div>
+    <div>
+    <label>Nom Catégorie</label>
+    <input type="text" [(ngModel)]="menu.nomMenu" name="nomMenu" class="form-control"
+    placeholder="Entrez un nom de Menu...">
+    </div>
+    <div class="mt-2">
+     <button type="submit" [disabled]="!menu.nomMenu" class="btn btn-success" 
+    (click)="saveMenu()" >{{ajout ? 'Ajouter' : 'Modifier'}}</button>
+    </div>
+    </form>

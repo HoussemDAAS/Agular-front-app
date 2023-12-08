@@ -1,0 +1,42 @@
+<div class="container">
+    <div>
+      <h2>Ajouter un plat :</h2>
+    </div>
+    <form>
+      <!-- <div class="col-sm-2 col-md-2 col-lg-2">
+        <label>ID plat</label>
+        <input  type="text" [(ngModel)]="newPlat.idPlat" name="idPlat" class="form-control">
+      </div> -->
+      <div class="col-sm-4 col-md-4 col-lg-4">
+        <label>Nom plat</label>
+        <input type="text" [(ngModel)]="newPlat.nomPlat" name="nomPlat" class="form-control">
+      </div>
+      <div class="col-sm-2 col-md-2 col-lg-2">
+        <label>Prix plat</label>
+        <input type="number" [(ngModel)]="newPlat.prix" name="prix" class="form-control">
+      </div>
+    
+      <div class="col-sm-4 col-md-4 col-lg-4">
+        <label><Menu></Menu></label>
+        <select class="form-control form-control-lg" id="idMenu" name="idMenu"
+        [(ngModel)]="newidmenu">
+         <option *ngFor="let Menu of menus" [value]="Menu.idMenu" >
+         {{Menu.nomMenu}}
+        </option>
+        </select>
+        </div>
+        <div class="col-sm-16 col-md-16 col-lg-16">
+          <label class="mb-2">Image :</label>
+          <input type="file" (change)="onImageUpload($event)"
+          name="logo" class="form-control">
+          </div>
+          <div class="col-sm-16 col-md-16 col-lg-16">
+            <img [src]="imagePath" class="card-img-top img-fluid rounded-start"
+            style="width: 500px; height: 300px" />
+            </div>
+      <div class="mt-2">
+        <button type="button" (click)="addPlat(); navigateToPlats()"[routerLink]="['/plats']" class="btn btn-success">Ajouter</button>
+      </div>
+    </form>
+  </div>
+  

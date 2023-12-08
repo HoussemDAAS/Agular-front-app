@@ -1,0 +1,34 @@
+<div class="container">
+    <div class="card shadow mb-4">
+        <div class="card-body">
+            <table class="table table-striped table-bordered table-hover">
+                <thead class="thead-dark">
+                    <tr>
+                        <th>ID</th>
+                        <th>Nom</th>
+                        <th>Prix</th>
+                        <th>Menu</th>
+                        <th>Image</th>
+                        <th>Action</th>
+
+                    </tr>
+                </thead>
+                <tbody *ngFor="let plat of plats">
+                    <tr>
+                        <td>{{plat.idPlat}}</td>
+                        <td>{{plat.nomPlat}}</td>
+                        <td>{{plat.prix}}</td>
+                        <td>{{plat.menu?.nomMenu}}</td>
+                        <td><img class="card-img-top img-responsive"
+                            src = "{{plat.imageStr}}"
+                            style = "height :50px;width:100px">
+                            </td>
+                        <td>
+                            <a *ngIf="authService.isAdmin()"  class="btn btn-danger btn-sm" (click)="supprimerPlat(plat)">Supprimer</a>
+                            <a *ngIf="authService.isAdmin()" class="btn btn-success btn-sm ml-2" [routerLink]="['/updatePlat', plat.idPlat]">Modifier</a></td>
+    </tr>
+    </tbody>
+    </table>
+    </div>
+    </div>
+    </div>
